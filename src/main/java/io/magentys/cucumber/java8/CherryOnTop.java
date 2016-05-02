@@ -9,10 +9,10 @@ import io.magentys.functional.Functions;
 
 public interface CherryOnTop extends En {
 
+    FunctionalAgent getFunctionalAgent();
 
-
-    default void CherryStep(final String regexp, final FunctionalAgent functionalAgent, final Functions.FunctionalMission<FunctionalAgent> body) {
-        StepdefBody.A0 a0Body = () -> body.apply(functionalAgent);
+    default void CherryStep(final String regexp, final Functions.FunctionalMission<FunctionalAgent> body) {
+        StepdefBody.A0 a0Body = () -> body.apply(getFunctionalAgent());
         JavaBackend.INSTANCE.get().addStepDefinition(regexp, 0, a0Body, CherryTypeInspector.INSTANCE);
     }
 

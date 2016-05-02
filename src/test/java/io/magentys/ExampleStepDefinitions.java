@@ -5,14 +5,18 @@ import io.magentys.cucumber.java8.CherryOnTop;
 
 public class ExampleStepDefinitions implements CherryOnTop {
 
-    private final FunctionalAgent asSystemSupport = new FunctionalAgent(new CoreMemory());
-    public static final SupportPersonMissions I = new SupportPersonMissions();
+    private final FunctionalAgent systemSupportAgent = new FunctionalAgent(new CoreMemory());
+    public static final SupportPersonMissions systemSupportPerson = new SupportPersonMissions();
 
     public ExampleStepDefinitions() {
 
-            CherryStep("I remember something", asSystemSupport, I.remember);
+        CherryStep("I remember something", systemSupportPerson.remembersSomething );
 
     }
 
 
+    @Override
+    public FunctionalAgent getFunctionalAgent() {
+        return systemSupportAgent;
+    }
 }

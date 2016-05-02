@@ -7,7 +7,7 @@ import io.magentys.functional.Functions;
  */
 public class SupportPersonMissions {
 
-    public Functions.FunctionalMission<FunctionalAgent> remember = systemSupport -> {
+    public Functions.FunctionalMission<FunctionalAgent> remembersSomething = systemSupport -> {
         systemSupport.keepsInMind("test", "test");
         System.out.println("hahaha");
         return systemSupport;
