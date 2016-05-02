@@ -3,20 +3,21 @@ package io.magentys.cucumber.java8;
 import cucumber.api.java8.En;
 import cucumber.api.java8.StepdefBody;
 import cucumber.runtime.java.JavaBackend;
-import cucumber.runtime.java8.ConstantPoolTypeIntrospector;
 import io.magentys.FunctionalAgent;
 import io.magentys.functional.Functions;
 
 
 public interface CherryOnTop extends En {
 
-    default StepdefBody.A0 a0Body(final FunctionalAgent functionalAgent, final Functions.FunctionalMission<FunctionalAgent> body){
-        return () -> body.apply(functionalAgent);
-    }
+
 
     default void CherryStep(final String regexp, final FunctionalAgent functionalAgent, final Functions.FunctionalMission<FunctionalAgent> body) {
-        JavaBackend.INSTANCE.get().addStepDefinition(regexp, 0, a0Body(functionalAgent, body), ConstantPoolTypeIntrospector.INSTANCE);
+        StepdefBody.A0 a0Body = () -> body.apply(functionalAgent);
+        JavaBackend.INSTANCE.get().addStepDefinition(regexp, 0, a0Body, CherryTypeInspector.INSTANCE);
     }
+
+
+
 
 //    default void CherryStep(final String regexp, final FunctionalAgent functionalAgent, final long timeoutMillis, final Functions.FunctionalMission<FunctionalAgent> body) {
 ////        StepdefBody.A0 a0Body = () -> body.apply(functionalAgent);
