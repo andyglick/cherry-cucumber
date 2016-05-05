@@ -11,6 +11,8 @@ public class ExampleStepDefinitions implements CherryOnTop {
     public ExampleStepDefinitions() {
 
         CherryStep("I remember something", systemSupportPerson.remembersSomething );
+        CherryStep("I remember that (.+) is wrong", systemSupportPerson.remembersSomethingElse);
+        CherryStep("I remember (.+) and (.+)", systemSupportPerson.rememberMultipleThings);
 
     }
 
