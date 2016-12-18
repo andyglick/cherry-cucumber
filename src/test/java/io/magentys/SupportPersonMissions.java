@@ -3,8 +3,9 @@ package io.magentys;
 import io.magentys.functional.Functions;
 
 /**
- * Created by kostasmamalis on 02/05/16.
+ * @author kostasmamalis
  */
+@SuppressWarnings("WeakerAccess")
 public class SupportPersonMissions {
 
     public Functions.FunctionalMission<FunctionalAgent> remembersSomething = systemSupport -> {

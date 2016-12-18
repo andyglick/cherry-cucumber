@@ -7,9 +7,10 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Type;
 
 /**
- * Created by kostasmamalis on 02/05/16.
+ * @author kostasmamalis
  */
 public class CherryTypeInspector implements TypeIntrospector {
+
     private static final Method Class_getConstantPool;
 
     static {
@@ -21,6 +22,7 @@ public class CherryTypeInspector implements TypeIntrospector {
         }
     }
 
+    @SuppressWarnings("WeakerAccess")
     public static final TypeIntrospector INSTANCE = new CherryTypeInspector();
 
     @Override
@@ -28,10 +30,10 @@ public class CherryTypeInspector implements TypeIntrospector {
         return new Type[0];
     }
 
+    @SuppressWarnings("unused")
     private String getTypeString(ConstantPool constantPool) {
         String[] memberRef = constantPool.getMemberRefInfoAt(constantPool.getSize() - 2);
         return memberRef[2];
     }
-
 }
 

@@ -6,7 +6,6 @@ import cucumber.runtime.java8.ConstantPoolTypeIntrospector;
 import io.magentys.FunctionalAgent;
 import io.magentys.functional.Functions;
 
-
 public interface CherryOnTop extends GlueBase {
 
     FunctionalAgent getFunctionalAgent();
@@ -200,5 +199,4 @@ public interface CherryOnTop extends GlueBase {
         };
         JavaBackend.INSTANCE.get().addStepDefinition(regexp, timeout, aBody, ConstantPoolTypeIntrospector.INSTANCE);
     }
-
 }
