@@ -1,6 +1,7 @@
 package io.magentys;
 
-import io.magentys.functional.Functions;
+import io.magentys.java8.FunctionalAgent;
+import io.magentys.java8.functional.Functions;
 
 /**
  * @author kostasmamalis
@@ -20,6 +21,7 @@ public class SupportPersonMissions {
     };
 
     public Functions.FunctionalMission2<String,String,FunctionalAgent> rememberMultipleThings = (s1, s2, functionalAgent) -> {
-        System.out.println(String.join(",", s1, s2)); return functionalAgent;
+        System.out.println(String.join(",", s1, s2));
+        return functionalAgent;
     };
 }
