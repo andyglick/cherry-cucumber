@@ -3,6 +3,7 @@ package io.magentys.cucumber.java8;
 import io.magentys.Agent;
 import io.magentys.Mission;
 
+@SuppressWarnings("unused")
 public class ActUponSystemWithoutResult implements Mission<Agent> {
     @Override
     public Agent accomplishAs(Agent agent) {

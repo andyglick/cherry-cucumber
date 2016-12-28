@@ -1,10 +1,15 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+  http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>io.magentys</groupId>
   <artifactId>cherry-cucumber</artifactId>
   <version>1.0.1-SNAPSHOT</version>
   <packaging>jar</packaging>
+
+  <description>Integrate Cucumber and Cherry :-)</description>
 
   <name>cherry-cucumber</name>
   <url>http://maven.apache.org</url>
@@ -16,10 +21,6 @@
       <distribution>repo</distribution>
     </license>
   </licenses>
-
-
-  <description>Integrate Cucumber and Cherry :-)</description>
-
 
   <developers>
     <developer>
@@ -63,7 +64,7 @@
     <!-- dependencies -->
     <junit.version>4.12</junit.version>
     <mockito.version>2.0.49-beta</mockito.version>
-    <cucumber.version>1.2.4</cucumber.version>
+    <cucumber.version>1.2.5</cucumber.version>
   </properties>
 
   <build>
@@ -121,26 +122,36 @@
           </execution>
         </executions>
       </plugin>
-      <plugin>
-        <groupId>org.apache.maven.plugins</groupId>
-        <artifactId>maven-gpg-plugin</artifactId>
-        <version>${maven-gpg-plugin.version}</version>
-        <executions>
-          <execution>
-            <id>sign-artifacts</id>
-            <phase>verify</phase>
-            <goals>
-              <goal>sign</goal>
-            </goals>
-            <configuration>
-              <keyname>BCF7D3CB</keyname>
-              <passphrase>mat2414</passphrase>
-            </configuration>
-          </execution>
-        </executions>
-      </plugin>
     </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>gpg</id>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-gpg-plugin</artifactId>
+            <version>${maven-gpg-plugin.version}</version>
+            <executions>
+              <execution>
+                <id>sign-artifacts</id>
+                <phase>verify</phase>
+                <goals>
+                  <goal>sign</goal>
+                </goals>
+                <configuration>
+                  <keyname>BCF7D3CB</keyname>
+                  <passphrase>mat2414</passphrase>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
   <dependencies>
     <dependency>
@@ -162,7 +173,7 @@
     <dependency>
       <groupId>io.magentys</groupId>
       <artifactId>cherry-java8</artifactId>
-      <version>1.0.1</version>
+      <version>1.0.7</version>
     </dependency>
 
   </dependencies>
